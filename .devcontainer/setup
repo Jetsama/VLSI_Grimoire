@@ -4,6 +4,8 @@ set -ex
 # start venv
 uv venv .venv
 source .venv/bin/activate
+apt update
+
 
 apt install wget
 mkdir -p ~/miniconda3
@@ -14,12 +16,12 @@ rm ~/miniconda3/miniconda.sh
 source ~/miniconda3/bin/activate
 conda install python=3.10
 conda install -c conda-forge pyspice
-
+uv pip install plotpy
+conda install pandas
 
 uv pip install marimo
 uv pip install PySpice
 
-apt update
 
 apt install ngspice
 apt install libngspice0 

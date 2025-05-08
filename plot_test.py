@@ -1,19 +1,33 @@
 import marimo
 
 __generated_with = "0.13.6"
-app = marimo.App(width="medium")
+app = marimo.App(width="medium", html_head_file="head.html")
 
 
 @app.cell
-async def _(mo):
-    import micropip
-    await micropip.install("pandas")
-    await micropip.install("plotly")
+def _():
+    # import micropip
+    # await micropip.install("pandas")
+    # await micropip.install("plotly")
+    import plotly
+    import pandas
     import plotly.express as px
+    import marimo as mo
     plot = mo.ui.plotly(
         px.scatter(x=[0, 1, 4, 9, 16], y=[0, 1, 2, 3, 4], width=600, height=300)
     )
     plot
+    return (mo,)
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""<kicanvas-embed src="https://raw.githubusercontent.com/Jetsama/DigitalLogicProject/refs/heads/main/PCBS/BOARD/BOARD.kicad_sch" controls="basic"> </kicanvas-embed>""")
     return
 
 
