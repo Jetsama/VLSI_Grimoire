@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -e
+# start venv
+uv venv .venv
+source .venv/bin/activate
+# uv pip install pyspice
+# apt-get -y install \
+#     git \
+#     libx11-dev \
+#     libx11-xcb-dev \
+#     libxrender-dev \
+#     libcairo2-dev \
+#     tcl8.6 \
+#     tcl8.6-dev \
+#     tcl-tclreadline \
+#     tk-dev \
+#     flex \
+#     bison \
+# 	libxpm-dev \
+#     libjpeg-dev \
+#     xterm \
+#     vim-gtk3 \
+#     gawk
+
+# REPO_COMMIT_SHORT=$(echo "$XSCHEM_REPO_COMMIT" | cut -c 1-7)
+
+# git clone --filter=blob:none "${XSCHEM_REPO_URL}" "${XSCHEM_NAME}"
+# cd "${XSCHEM_NAME}"
+# git checkout "${XSCHEM_REPO_COMMIT}"
+# ./configure --prefix="${TOOLS}/${XSCHEM_NAME}"
+# make -j"$(nproc)"
+# make install
+
+# export PATH="${PATH:+${PATH}:}/foss/tools/xschem/bin"
