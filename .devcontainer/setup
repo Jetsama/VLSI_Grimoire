@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 # start venv
 uv venv .venv
 source .venv/bin/activate
