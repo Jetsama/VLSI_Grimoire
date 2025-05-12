@@ -2,11 +2,11 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/anaconda
 {
 	"name": "Grimoire",
-	"image": "ghcr.io/cascode-labs/viper-osic-docker-analog/osic-docker-analog:v0.2",
-	// "build": { 
-	// 	"context": "..",
-	// 	"dockerfile": "Dockerfile"
-	// },
+	// "image": "ghcr.io/cascode-labs/viper-osic-docker-analog/osic-docker-analog:v0.2",
+	"build": { 
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	},
 	"features": {
 		"ghcr.io/devcontainers/features/desktop-lite:1": {},
 		"ghcr.io/va-h/devcontainers-features/uv:1": {},

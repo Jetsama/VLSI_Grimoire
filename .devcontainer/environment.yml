@@ -1,0 +1,9 @@
+name: Grimoire
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - pyspice
+  - marimo
+  - pandas
+  - plotpy
