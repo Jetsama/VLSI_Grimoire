@@ -14,7 +14,7 @@ lab=IN}
 N -60 -160 -60 -70 {
 lab=IN}
 N 0 -130 -0 -100 {
-lab=#net1}
+lab=IN}
 N -120 -120 -60 -120 {
 lab=IN}
 N 0 -40 -0 -20 {
@@ -27,7 +27,8 @@ N 0 -230 0 -190 {
 lab=VDD}
 N -60 -70 -40 -70 {
 lab=IN}
-N 0 -120 90 -120 {}
+N 0 -120 90 -120 {
+lab=IN}
 C {/foss/pdks/sky130A/libs.tech/xschem/sky130_fd_pr/nfet_01v8.sym} -20 -70 0 0 {name=M1
 L=0.15
 W=1
@@ -58,15 +59,13 @@ spiceprefix=X
 }
 C {iopin.sym} -120 -120 0 1 {name=p1 lab=IN
 }
-C {iopin.sym} -40 -230 0 1 {name=p2 lab=VDD
-}
-C {iopin.sym} -40 -230 0 1 {name=p3 lab=VDD
-}
-C {iopin.sym} -40 -230 0 1 {name=p4 lab=VDD
-}
 C {iopin.sym} -40 -230 0 1 {name=p5 lab=VDD
 }
 C {iopin.sym} -20 -20 0 1 {name=p6 lab=VSS
 }
 C {iopin.sym} 90 -120 0 0 {name=p7 lab=IN
 }
+C {code.sym} -270 -110 0 0 {name=spice only_toplevel=false value="
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+"}

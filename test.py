@@ -85,7 +85,7 @@ def _(plot):
     import matplotlib.pyplot as plt
 
     fig, ax = plt.subplots()
-    ax.plot(plot['V(5)']._data)
+    ax.plot(plot['V(2)']._data)
 
     # ax.set(xlabel='time (s)', ylabel='voltage (mV)',
     #        title='About as simple as it gets, folks')

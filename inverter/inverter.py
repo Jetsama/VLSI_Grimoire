@@ -17,18 +17,17 @@ def _():
 
 
 @app.cell
-def _():
-    import subprocess
-    def xschem_draw(file):
-        subprocess.run(f"xschem --png --plotfile {file}.png {file}.sch --quit", shell=True, check=True)
-    xschem_draw("inverter/inverter")
-    return
-
-
-@app.cell
 def _(mo):
-    mo.md(r"![testout.png](./inverter.png)")
-    return
+    import subprocess
+    def xschem_draw(path,file):
+        subprocess.run(f"xschem --png --plotfile {path}/{file}.png {path}/{file}.sch --quit", shell=True, check=True)
+        _src = (
+        f"{path}/{file}.png"
+        )
+        return mo.image(src=_src)
+    xschem_draw("inverter","inverter")
+
+    return (subprocess,)
 
 
 @app.cell
@@ -40,6 +39,49 @@ def _(mo):
         Then the IO from the default library.
         """
     )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"We can now netlist using xschem!")
+    return
+
+
+@app.cell
+def _(subprocess):
+    def xschem_netlist(path,file):
+        command = f"xschem --netlist --spice {path}/{file}.sch --netlist_path {path} -N {file}.spice --quit"
+        subprocess.run(command, shell=True, check=True)
+    
+    xschem_netlist("inverter","inverter")
+
+    return
+
+
+@app.cell
+def _(mo):
+    slider = mo.ui.slider(1, 10)
+    mo.md(f"Choose a value: {slider}")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"Finally use the netslist in pyspice to simulate!")
+    return
+
+
+@app.cell
+def _():
+    from PySpice.Spice.NgSpice.Shared import NgSpiceShared
+    ngspice = NgSpiceShared.new_instance()
+    file = open("inverter/inverter.spice", 'r')
+    circuit = file.read()
+    print(circuit)
+    ngspice.load_circuit(circuit)
+    # fhdjhfdj.voltage = slider.value
+    ngspice.run()
     return
 
 
