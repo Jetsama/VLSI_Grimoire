@@ -78,5 +78,6 @@ RUN conda init --all
 # COPY environment.yml* .devcontainer/environment.yml /tmp/conda-tmp/
 # RUN source ~/miniconda3/bin/activate 
 # WORKDIR /workspaces/VLSI_Grimoire
-# WORKDIR /workspaces/VLSI_Grimoire
-# RUN conda env create -f .devcontainer/environment.yml
+WORKDIR /workspaces/VLSI_Grimoire
+RUN conda env create -f .devcontainer/environment.yml
+#conda activate Grimoire 
