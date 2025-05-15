@@ -43,13 +43,22 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     zlib1g-dev    
 
 # RUN   apt-get install magic
-
+#Install magic for layout
 RUN git clone git://opencircuitdesign.com/magic
 WORKDIR /ic_tools/magic
 RUN ./configure
 RUN make
 RUN make install
-    
+
+#install ngpspice from repo
+# git clone https://github.com/ngspice/ngspice
+# cd ngspice
+# ./autogen.sh
+# mkdir debug
+# cd debug
+# ../configure --with-x --with-readline=yes
+# make && make install
+
 #INSTALL OPEN PDKS
 RUN mkdir -p /ic_tools/pdks_source
 WORKDIR /ic_tools/pdks_source

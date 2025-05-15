@@ -7,3 +7,4 @@ dependencies:
   - marimo
   - pandas
   - plotpy
+  # hdl21 via pip
