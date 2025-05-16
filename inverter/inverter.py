@@ -74,6 +74,15 @@ def _(mo):
 
 @app.cell
 def _():
+    import hdl21 as h
+    import hdl21.sim as hs
+    import vlsirtools.spice as vsp
+
+    return
+
+
+@app.cell
+def _():
     from PySpice.Spice.NgSpice.Shared import NgSpiceShared
     ngspice = NgSpiceShared.new_instance()
     file = open("inverter/inverter.spice", 'r')
