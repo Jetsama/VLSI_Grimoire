@@ -53,7 +53,7 @@ def _(subprocess):
     def xschem_netlist(path,file):
         command = f"xschem --netlist --spice {path}/{file}.sch --netlist_path {path} -N {file}.spice --quit"
         subprocess.run(command, shell=True, check=True)
-    
+
     xschem_netlist("inverter","inverter")
 
     return
@@ -87,10 +87,40 @@ def _():
     ngspice = NgSpiceShared.new_instance()
     file = open("inverter/inverter.spice", 'r')
     circuit = file.read()
+    # testbench = '''
+    # .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+    # XM1 IN IN VSS VSS sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
+    # + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+    # XM2 IN IN VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
+    # + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+    # **** begin user architecture code
+
+
+    # '''
+
+    # circuit = testbench
+    circuit = circuit.replace(".end\n",
+                              f"VDD VDD 0 1.8\nVSS VSS 0 0\nVIN IN 0 0\n.op \n.end\n"
+                              #tran 50u 50m
+                              )
     print(circuit)
     ngspice.load_circuit(circuit)
     # fhdjhfdj.voltage = slider.value
     ngspice.run()
+    return (ngspice,)
+
+
+@app.cell
+def _(ngspice):
+    print('Plots:', ngspice.plot_names)
+    plot = ngspice.plot(simulation=None, plot_name=ngspice.last_plot)
+    import matplotlib.pyplot as plt
+    print(plot)
+    fig, ax = plt.subplots()
+    ax.plot(plot['vdd']._data)
+    print(plot['vdd']._data)
+    print(f"input: {plot['in']._data}")
+    print(f"output: {plot['out']._data}")
     return
 
 
