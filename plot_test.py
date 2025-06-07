@@ -25,12 +25,12 @@ def _():
     return
 
 
-app._unparsable_cell(
-    r"""
-    mo.md(r\"<kicanvas-embed src=\"https://raw.githubusercontent.com/Jetsama/DigitalLogicProject/refs/heads/main/PCBS/BOARD/BOARD.kicad_sch\" controls=\"basic\"> </kicanvas-embed>\")
-    """,
-    name="_"
-)
+# app._unparsable_cell(
+#     r"""
+#     mo.md(r\"<kicanvas-embed src=\"https://raw.githubusercontent.com/Jetsama/DigitalLogicProject/refs/heads/main/PCBS/BOARD/BOARD.kicad_sch\" controls=\"basic\"> </kicanvas-embed>\")
+#     """,
+#     name="_"
+# )
 
 
 if __name__ == "__main__":

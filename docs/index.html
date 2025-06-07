@@ -52,16 +52,31 @@
         resizeObserver.observe(obj.contentWindow.document.body);
       }
     </script>
-    <marimo-filename hidden>{{ filename }}</marimo-filename>
-    <marimo-mode data-mode='{{ mode }}' hidden></marimo-mode>
-    <marimo-version data-version='{{ version }}' hidden></marimo-version>
-    <marimo-user-config data-config='{{ user_config }}' data-overrides='{{ config_overrides }}' hidden></marimo-user-config>
-    <marimo-app-config data-config='{{ app_config }}' hidden></marimo-app-config>
-    <marimo-server-token data-token='{{ server_token }}' hidden></marimo-server-token>
-    <title>{{ title }}</title>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <marimo-mode data-mode='edit' hidden></marimo-mode>
+    <marimo-version data-version='0.13.6' hidden></marimo-version>
+    <marimo-user-config data-config='{"completion": {"activate_on_typing": true, "copilot": false}, "display": {"default_table_page_size": 10, "default_width": "medium", "dataframes": "rich", "theme": "dark", "cell_output": "above", "code_editor_font_size": 14}, "formatting": {"line_length": 79}, "keymap": {"preset": "default", "overrides": {}}, "runtime": {"auto_instantiate": true, "auto_reload": "off", "reactive_tests": true, "on_cell_change": "autorun", "watcher_on_save": "lazy", "output_max_bytes": 8000000, "std_stream_max_bytes": 1000000}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "package_management": {"manager": "pip"}, "server": {"browser": "default", "follow_symlink": false}, "language_servers": {"pylsp": {"enabled": true, "enable_mypy": true, "enable_ruff": true, "enable_flake8": false, "enable_pydocstyle": false, "enable_pylint": false, "enable_pyflakes": false}}, "snippets": {"custom_paths": [], "include_default_snippets": true}}' data-overrides='{}' hidden></marimo-user-config>
+    <marimo-app-config data-config='{"width": "medium", "html_head_file": "head.html", "sql_output": "auto"}' hidden></marimo-app-config>
+    <marimo-server-token data-token='123' hidden></marimo-server-token>
+    <title>plot test</title>
     <script type="module" crossorigin src="./assets/index-D3XtisvU.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-33Q7xM_A.css">
-  </head>
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    <marimo-code hidden="" data-show-code="false">import%20marimo%0A%0A__generated_with%20%3D%20%220.13.6%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22%2C%20html_head_file%3D%22head.html%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20%23%20import%20micropip%0A%20%20%20%20%23%20await%20micropip.install(%22pandas%22)%0A%20%20%20%20%23%20await%20micropip.install(%22plotly%22)%0A%20%20%20%20import%20plotly%0A%20%20%20%20import%20pandas%0A%20%20%20%20import%20plotly.express%20as%20px%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20plot%20%3D%20mo.ui.plotly(%0A%20%20%20%20%20%20%20%20px.scatter(x%3D%5B0%2C%201%2C%204%2C%209%2C%2016%5D%2C%20y%3D%5B0%2C%201%2C%202%2C%203%2C%204%5D%2C%20width%3D600%2C%20height%3D300)%0A%20%20%20%20)%0A%20%20%20%20plot%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
   <body>
     <div id="root"></div>
   </body>
