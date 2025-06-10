@@ -28,6 +28,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Install marimo
+        run: pip install marimo
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3 # Use the setup-miniconda action
         with:
