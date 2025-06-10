@@ -40,11 +40,11 @@ jobs:
 
       - name: 📄 Export notebook
         run: |
-                  marimo export html-wasm plot_test.py -o path/to/output --mode edit
+                  marimo export html-wasm plot_test.py -o build --mode edit
       - name: 📦 Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: path/to/output
+          path: build
   # Single deploy job since we're just deploying
   deploy:
     needs: build
