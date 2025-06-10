@@ -37,14 +37,18 @@ jobs:
           environment-file: .devcontainer/environment.yml
           activate-environment: Grimoire # environment to activate
           auto-activate-base: false # Prevent auto-activation of the base environment
-
-      - name: 📄 Export notebook
+        # Run the build script to export notebooks to WebAssembly
+      - name: 🛠️ Export notebooks
         run: |
-                  marimo export html-wasm plot_test.py -o build --mode edit
+          python .github/scripts/build.py  # This script exports all notebooks to the _site directory
+
+      # - name: 📄 Export notebook
+      #   run: |
+      #             marimo export html-wasm plot_test.py -o build --mode edit
       - name: 📦 Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build
+          path: _site
   # Single deploy job since we're just deploying
   deploy:
     needs: build
