@@ -1,0 +1,147 @@
+<!-- <div><button id="btRun">Start START START STARET ADASTATATATAFGA 🚀</button></div>
+<script async type="text/javascript">
+    let btRun = document.getElementById("btRun");
+    btRun.addEventListener("click", () => {
+    // textArea.value = "Simulation running. Please wait...";
+    btRun.disabled = true;
+    let script = document.createElement("script");
+    script.src = "/ngspice.js";
+    script.type = "text/javascript";
+    document.body.appendChild(script);
+    });
+</script>
+<script>
+  // Listen for messages from Pyodide
+  self.onmessage = (event) => {
+    const { type, data } = event.data;
+
+    if (type === "load_ngspice") {
+      // Dynamically load the ngspice.js script
+      const script = document.createElement("script");
+      script.src = data.src;
+      script.type = "text/javascript";
+      document.body.appendChild(script);
+    }
+  };
+</script> -->
+
+<script src="/mini-coi.js" scope="./"></script> 
+
+
+<!-- PyScript CSS -->
+<!-- <link rel="stylesheet" href="https://pyscript.net/releases/2024.6.2/core.css"> -->
+<!-- This script tag bootstraps PyScript -->
+<!-- <script type="module" src="https://pyscript.net/releases/2024.6.2/core.js"></script> -->
+<!-- <title>PyWorker - mpy bootstrapping pyodide example</title> -->
+ 
+<script async type="text/javascript">
+  var Module = {
+    stdin: function() {
+        // Return null to disable input requests
+        return null;
+    },
+    stdout: function(text) {
+        console.log(text); // Redirect stdout to the browser console
+        // document.getElementById('output').innerText += text + '\\n';
+    },
+    stderr: function(text) {
+        console.error(text); // Redirect stderr to the browser console
+        // document.getElementById('output').innerText += 'Error: ' + text + '\\n';
+    },
+    onRuntimeInitialized: function() {
+        console.log("Module initialized!");
+        // FS.writeFile('/dev/stdin', 'help all\n');
+        // Override TTY operations to disable prompt behavior
+        // TTY.register(FS.makedev(5, 0), {
+        //     get_char: function() {
+        //         return null; // Disable input requests
+        //     },
+        //     put_char: function(tty, val) {
+        //         if (val === null || val === 10) {
+        //             console.log(UTF8ArrayToString(tty.output, 0));
+        //             tty.output = [];
+        //         } else {
+        //             if (val != 0) tty.output.push(val);
+        //         }
+        //     },
+        //     flush: function(tty) {
+        //         if (tty.output && tty.output.length > 0) {
+        //             console.log(UTF8ArrayToString(tty.output, 0));
+        //             tty.output = [];
+        //         }
+        //     }
+        // });
+        // console.log('Write to file');
+        // Write the command to stdin
+        console.log("Write to input!");
+
+        FS.writeFile('/dev/stdin', 'help all\\n');
+
+        // Run the simulation or process the command
+        // Module.arguments = ["-b", "/dev/stdin"];
+        // Module.run();
+        console.log("Read output!");
+
+        // Read the output from stdout
+        const output = FS.readFile('/dev/stdout', { encoding: 'utf8' });
+        console.log('Simulation Output:', output);
+    }
+};
+  </script>
+ <!-- etc -->
+
+
+<!-- <script>
+
+Module = {
+  arguments: ["-b", "test.cir"],
+  //arguments: ["test.cir"]
+
+  preRun: [
+    (pr = () => {
+      console.log("Pre Run commands");
+      // https://emscripten.org/docs/api_reference/Filesystem-API.html#filesystem-api
+      FS.writeFile("/test.cir", str2);
+      FS.writeFile("/modelcard.nmos", strModelNmos);
+      FS.writeFile("/modelcard.pmos", strModelPmos);
+
+      FS.writeFile("/test_bsim.cir", strBsimComprt);
+      //console.log(FS.readFile("/test.cir", { encoding: "utf8" }));
+    }),
+  ],
+  postRun: [
+    (ps = () => {
+      console.log("job done! from html");
+      console.log("post run...");
+
+      let pMsg = document.getElementById("pMsg");
+      pMsg.innerHTML = "Please refresh the page for a new simulation run";
+
+      textArea.scrollTo(0, 0);
+    }),
+  ],
+  print: (function () {
+    return function (text) {
+      if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(" ");
+      // These replacements are necessary if you render to raw HTML
+      //text = text.replace(/&/g, "&amp;");
+      //text = text.replace(/</g, "&lt;");
+      //text = text.replace(/>/g, "&gt;");
+      //text = text.replace('\n', '<br>', 'g');
+
+      //console.log(text);
+      if (textArea) {
+        textArea.value += text + "\n";
+        textArea.scrollTop = textArea.scrollHeight; // focus on bottom
+      }
+    };
+  })(),
+}; //end of Module
+
+
+Module["stdin"
+
+</script> -->
+
+<!-- <script async type="text/javascript"src = "/ngspice.js">
+</script> -->

@@ -14,3 +14,11 @@ A spellbook of useful circuits using marimo to allow for interactive demos.
 [ANALOG INTEGRATED CIRCUIT DESIGN](https://mrce.in/ebooks/Analog%20Integrated%20Circuit%20Design%202nd%20Ed.pdf)
 
 [VLSI Design Techniques for Analog and Digital Circuits](https://class.ece.iastate.edu/ee330/GAS_book.htm)
+
+flowchart TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+  
