@@ -1,2 +1,10 @@
+# outputs
 output_dir/
 _site/
+
+# python ignores
+.venv/
+__marimo/
+__pycache__/
+
+uv.lock
