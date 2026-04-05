@@ -16,14 +16,14 @@
 	},
 
 	"forwardPorts": [6080, 5901],
-	"portsAttributes": {
-	  "6080": {
-		 "label": "desktop - noVNC"
-	  },
-	  "5901": {
-		 "label": "desktop - VNC"
-	  }
-	},
+	// "portsAttributes": {
+	//   "6080": {
+	// 	 "label": "desktop - noVNC"
+	//   },
+	//   "5901": {
+	// 	 "label": "desktop - VNC"
+	//   }
+	// },
 	//Install all tools/python needed!
 	"postCreateCommand": ".devcontainer/setup",
 	//cmod a+rwx .devcontainer/setup
@@ -48,10 +48,10 @@
 				"donjayamanne.python-environment-manager",
 				"mhutchie.git-graph",
 				"cschleiden.vscode-github-actions",
-				"mechatroner.rainbow-csv",
-				"redhat.vscode-yaml",
+				// "mechatroner.rainbow-csv",
+				// "redhat.vscode-yaml",
 				"barakh.vscode-xschem-viewer",
-				"marimo-team.vscode-marimo"
+				// "marimo-team.vscode-marimo"
 			]
 		}
 	},

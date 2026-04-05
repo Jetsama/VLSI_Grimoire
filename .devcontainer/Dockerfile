@@ -44,21 +44,21 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 # RUN   apt-get install magic
 #Build from source
-RUN git clone git://opencircuitdesign.com/magic
-WORKDIR /ic_tools/magic
-RUN ./configure
-RUN make
-RUN make install
+# RUN git clone git://opencircuitdesign.com/magic
+# WORKDIR /ic_tools/magic
+# RUN ./configure
+# RUN make
+# RUN make install
     
-#INSTALL OPEN PDKS
-RUN mkdir -p /ic_tools/pdks_source
-WORKDIR /ic_tools/pdks_source
-# RUN apt-get update && apt-get install -y locales
-RUN git clone git://opencircuitdesign.com/open_pdks
-WORKDIR /ic_tools/pdks_source/open_pdks
-RUN ./configure --enable-sky130-pdk --enable-sram-sky130 --with-sky130-variants=all
-RUN make
-RUN make install 
+# #INSTALL OPEN PDKS
+# RUN mkdir -p /ic_tools/pdks_source
+# WORKDIR /ic_tools/pdks_source
+# # RUN apt-get update && apt-get install -y locales
+# RUN git clone git://opencircuitdesign.com/open_pdks
+# WORKDIR /ic_tools/pdks_source/open_pdks
+# RUN ./configure --enable-sky130-pdk --enable-sram-sky130 --with-sky130-variants=all
+# RUN make
+# RUN make install 
 
 
 #uv install!
@@ -80,6 +80,6 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 # COPY environment.yml* .devcontainer/environment.yml /tmp/conda-tmp/
 # RUN source ~/miniconda3/bin/activate 
 # WORKDIR /workspaces/VLSI_Grimoire
-WORKDIR /workspaces/VLSI_Grimoire
+# WORKDIR /workspaces/VLSI_Grimoire
 # RUN conda env create -f .devcontainer/environment.yml
 #conda activate Grimoire 

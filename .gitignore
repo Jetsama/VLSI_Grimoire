@@ -1,3 +1,6 @@
+
+.devpod-internal/
+
 # outputs
 output_dir/
 _site/
