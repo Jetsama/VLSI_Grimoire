@@ -1,5 +1,12 @@
-## VLSI Grimoire
-A spellbook of useful circuits using marimo to allow for interactive demos.
+# VLSI Grimoire
+*by [Jonathan Hess](https://jonathanehess.com/)*
+This is a gentle guide through the magic world of VLSI IC design. This guide is heavily inspired by the [Book of Shaders](https://thebookofshaders.com/) and [Tonc](https://www.coranac.com/tonc/text/). This is a working version that may contain errors or mistakes. If you catch anything, please feel free to help!
+
+## Contents
+
+## Acknowledgements
+Thanks Patricio Gonzalez Vivo and Jen Lowe for the inspiration!
+Thanks 
 
 
 
