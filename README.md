@@ -1,5 +1,6 @@
 # VLSI Grimoire
 *by [Jonathan Hess](https://jonathanehess.com/)*
+
 This is a gentle guide through the magic world of VLSI IC design. This guide is heavily inspired by the [Book of Shaders](https://thebookofshaders.com/) and [Tonc](https://www.coranac.com/tonc/text/). This is a working version that may contain errors or mistakes. If you catch anything, please feel free to help!
 
 Also, this is still not in a "complete" state so expect potentialy major changes!
@@ -7,7 +8,9 @@ Also, this is still not in a "complete" state so expect potentialy major changes
 ## Contents
 
 ## Acknowledgements
+
 Thanks Patricio Gonzalez Vivo and Jen Lowe for the inspiration!
+
 Thanks Jasper Vijn for the inspiration!
 
 
